@@ -4,7 +4,7 @@ from surveys import satisfaction_survey as survey
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "never-tell!"
-# app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 
 debug = DebugToolbarExtension(app)
 
@@ -23,7 +23,7 @@ def direct_user_to_question():
 @app.get("/questions/<int:question_num>")
 def show_current_question(question_num):
     """ Takes in question number and shows html for form for that question"""
-    question = survey.question[question_num]
+    question = survey.questions[question_num]
     return render_template("question.html",
                            question_num = question_num,
                            question = question)
