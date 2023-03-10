@@ -3,5 +3,14 @@
 {% block content %}
 
   <h1>Thanks for completing this survey!</h1>
+  <div>
+    <ul>
+      {% for question in questions %}
+      <li>
+        <b>{{question.prompt}}</b> {{responses.pop(0)}}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 
 {% endblock %}
