@@ -7,7 +7,7 @@
     <ul>
       {% for question in questions %}
       <li>
-        <b>{{question.prompt}}</b> {{responses.pop(0)}}
+        <b>{{question.prompt}}</b> {{session["responses"].pop(0)}}
       </li>
       {% endfor %}
     </ul>
